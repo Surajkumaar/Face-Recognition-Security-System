@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Face Recognition Security System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">Face Recognition Security System</h1>
+        
+        <div class="content">
+            <div class="left-panel">
+                <h3>Live Camera Feed</h3>
+                <div class="video-container">
+                    <img src="{{ url_for('video_feed') }}" id="video_feed" alt="Live Camera Feed">
+                </div>
+            </div>
+            
+            <div class="right-panel">
+                <div class="upload-section">
+                    <h3>Upload a Known Face</h3>
+                    <form action="{{ url_for('upload') }}" method="post" enctype="multipart/form-data">
+                        <input type="file" name="file" required>
+                        <button type="submit">Upload</button>
+                    </form>
+                </div>
+                
+                <div class="uploaded-image-section">
+                    <h3>Uploaded Known Face</h3>
+                    <div class="image-container">
+                        {% if uploaded_image %}
+                            <img src="{{ uploaded_image }}" alt="Uploaded Face" class="uploaded-face">
+                        {% else %}
+                            <p>No image uploaded yet.</p>
+                        {% endif %}
+                    </div>
+                </div>
+                
+                <div class="alert-section">
+                    <h3>Unknown Face Detections</h3>
+                    <p>No unknown faces detected yet.</p>
+                </div>
+
+                <div class="phone-section">
+                    <h3>Alert Phone Number</h3>
+                    <form action="{{ url_for('set_phone') }}" method="post">
+                        <input type="tel" name="phone" placeholder="Enter phone number" required>
+                        <button type="submit">Save</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
