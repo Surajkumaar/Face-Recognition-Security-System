@@ -63,7 +63,7 @@ pip install flask opencv-python mediapipe twilio
 Run the following command:
 
 ```bash
-python app1.py
+python app.py
 ```
 
 The application will start, and you can access it in your browser at:
@@ -104,14 +104,14 @@ Replace `"your_account_sid"`, `"your_auth_token"`, and `"your_twilio_number"` wi
 Face-Recognition-Security-System/
 │── static/                # Contains uploaded images
 │── templates/             # HTML templates for web interface
-│── app1.py                # Main Flask application
+│── app.py                # Main Flask application
 │── requirements.txt       # Python dependencies
 │── README.md              # Project documentation
 ```
 
 ---
 
-## 📌 Key Functions in `app1.py`
+## 📌 Key Functions in `app.py`
 
 - **Face Detection**: Uses **Mediapipe** to detect faces in real-time.
 - **SMS Alerts**: Sends an **alert SMS** when an unknown face is detected.
